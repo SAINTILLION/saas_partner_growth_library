@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-Book Partner Growth Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --surface2: #f4f2ed;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.15);
+  --text: #1a1a18;
+  --muted: #6b6b60;
+  --muted2: #a0a095;
+
+  --b1: #1a1a18;      /* deep black */
+  --b1t: #f5f3ee;
+  --b2: #2d4a35;      /* forest green */
+  --b2t: #d4ead8;
+  --b3: #1e3a5f;      /* navy */
+  --b3t: #d0e2f5;
+  --b4: #5c1f1f;      /* burgundy */
+  --b4t: #f5dede;
+
+  --acc1: #c8b86e;    /* gold */
+  --acc2: #4a9e6a;    /* green */
+  --acc3: #3d7cb5;    /* blue */
+  --acc4: #b85050;    /* red */
+
+  --fd: 'Playfair Display', Georgia, serif;
+  --fb: 'Inter', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fb);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  background: var(--b1);
+  color: var(--b1t);
+  padding: 72px 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 40px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.masthead-eyebrow {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--acc1);
+  margin-bottom: 20px;
+}
+.masthead-title {
+  font-family: var(--fd);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.masthead-title em { color: var(--acc1); font-style: normal; }
+.masthead-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(245,243,238,.6);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+.book-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pill {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: .08em;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all .2s;
+}
+.pill.p1 { border-color: var(--acc1); color: var(--acc1); }
+.pill.p2 { border-color: var(--acc2); color: var(--acc2); }
+.pill.p3 { border-color: var(--acc3); color: var(--acc3); }
+.pill.p4 { border-color: var(--acc4); color: var(--acc4); }
+.pill:hover { transform: translateY(-2px); }
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,249,246,.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  padding: 0 60px;
+  overflow-x: auto;
+  gap: 0;
+}
+.nt {
+  padding: 16px 20px;
+  font-size: 11px;
+  font-family: var(--fm);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  transition: all .2s;
+}
+.nt:hover { color: var(--text); }
+.nt.a1.active { color: var(--b1); border-bottom-color: var(--acc1); }
+.nt.a2.active { color: var(--b2); border-bottom-color: var(--acc2); }
+.nt.a3.active { color: var(--b3); border-bottom-color: var(--acc3); }
+.nt.a4.active { color: var(--b4); border-bottom-color: var(--acc4); }
+.nt.all.active { color: var(--text); border-bottom-color: var(--text); }
+
+/* ─── BODY ─── */
+.body { padding: 48px 60px 80px; max-width: 1100px; }
+
+.sec { display: none; }
+.sec.active { display: block; }
+
+/* ─── BOOK HEADER ─── */
+.book-hdr {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding: 32px 36px;
+  border-radius: var(--radius);
+  border-left: 5px solid;
+}
+.book-hdr.b1 { background: #1a1a18; border-color: var(--acc1); color: var(--b1t); }
+.book-hdr.b2 { background: #2d4a35; border-color: var(--acc2); color: var(--b2t); }
+.book-hdr.b3 { background: #1e3a5f; border-color: var(--acc3); color: var(--b3t); }
+.book-hdr.b4 { background: #5c1f1f; border-color: var(--acc4); color: var(--b4t); }
+
+.bhdr-num {
+  font-family: var(--fd);
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: .15;
+  min-width: 60px;
+}
+.bhdr-right { flex: 1; }
+.bhdr-label {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .5;
+  margin-bottom: 6px;
+}
+.bhdr-title {
+  font-family: var(--fd);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.bhdr-author {
+  font-size: 13px;
+  opacity: .6;
+  margin-bottom: 12px;
+}
+.bhdr-tagline {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: .8;
+  line-height: 1.5;
+  max-width: 620px;
+}
+
+/* ─── SECTION LABEL ─── */
+.slabel {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.slabel::before {
+  content: '';
+  width: 3px;
+  height: 12px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: .5;
+}
+
+/* ─── LESSON GRID ─── */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media(max-width: 720px){
+  .lesson-grid { grid-template-columns: 1fr; }
+  .body, .nav { padding-left: 20px; padding-right: 20px; }
+  .masthead { padding: 48px 20px 48px; }
+}
+
+.lesson {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  transition: box-shadow .2s, transform .2s;
+}
+.lesson:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  transform: translateY(-2px);
+}
+.lesson.full { grid-column: 1 / -1; }
+
+.l-num {
+  font-family: var(--fm);
+  font-size: 10px;
+  color: var(--muted2);
+  letter-spacing: .1em;
+  margin-bottom: 8px;
+}
+.l-title {
+  font-family: var(--fd);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.l-body {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.l-body strong { color: var(--text); font-weight: 500; }
+.l-body em { font-style: italic; }
+
+/* accent borders per book */
+.b1 .lesson { border-top: 2px solid var(--acc1); }
+.b2 .lesson { border-top: 2px solid var(--acc2); }
+.b3 .lesson { border-top: 2px solid var(--acc3); }
+.b4 .lesson { border-top: 2px solid var(--acc4); }
+
+/* ─── CALLOUT BOXES ─── */
+.callout {
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+.callout.gold { background: #fdf8ec; border-left: 3px solid var(--acc1); }
+.callout.green { background: #edf6f0; border-left: 3px solid var(--acc2); }
+.callout.blue { background: #eef4fb; border-left: 3px solid var(--acc3); }
+.callout.red { background: #faeaea; border-left: 3px solid var(--acc4); }
+.callout-label {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 6px;
+}
+.callout strong { font-weight: 600; color: var(--text); }
+
+/* ─── APPLY TABLE ─── */
+.apply-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  font-size: 13.5px;
+}
+.apply-table th {
+  font-family: var(--fm);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+  background: var(--surface2);
+}
+.apply-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.apply-table tr:last-child td { border-bottom: none; }
+.apply-table td:first-child { font-weight: 500; color: var(--text); min-width: 160px; }
+.apply-table td:last-child { color: var(--muted); }
+
+/* ─── FRAMEWORK BOX ─── */
+.framework {
+  background: var(--b1);
+  color: var(--b1t);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 32px;
+}
+.framework h3 {
+  font-family: var(--fd);
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--acc1);
+}
+.framework-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.fstep {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.fstep-n {
+  font-family: var(--fd);
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(245,243,238,.15);
+  line-height: 1;
+  min-width: 32px;
+}
+.fstep-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(245,243,238,.75);
+  padding-top: 4px;
+}
+.fstep-text strong { color: var(--b1t); font-weight: 500; }
+
+/* ─── DIVIDER ─── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 36px 0;
+}
+
+/* ─── OVERVIEW PAGE ─── */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+@media(max-width:720px){ .overview-grid { grid-template-columns: 1fr; } }
+.overview-card {
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  border: 1px solid var(--border);
+}
+.overview-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+.overview-card.c1 { background: var(--b1); color: var(--b1t); }
+.overview-card.c2 { background: var(--b2); color: var(--b2t); }
+.overview-card.c3 { background: var(--b3); color: var(--b3t); }
+.overview-card.c4 { background: var(--b4); color: var(--b4t); }
+.oc-num { font-family: var(--fm); font-size: 9px; letter-spacing: .15em; opacity: .4; margin-bottom: 10px; text-transform: uppercase; }
+.oc-title { font-family: var(--fd); font-size: 20px; font-weight: 700; margin-bottom: 4px; line-height: 1.25; }
+.oc-author { font-size: 12px; opacity: .5; margin-bottom: 14px; }
+.oc-hook { font-size: 13px; line-height: 1.6; opacity: .75; }
+.oc-stat {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: flex;
+  gap: 20px;
+}
+.oc-stat span { font-family: var(--fm); font-size: 10px; opacity: .5; letter-spacing: .05em; }
+.oc-stat strong { font-size: 16px; font-weight: 600; opacity: .9; display: block; margin-bottom: 2px; }
+
+.synthesis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media(max-width:720px){ .synthesis-grid { grid-template-columns: 1fr; } }
+.syn-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+}
+.syn-title {
+  font-family: var(--fm);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  margin-bottom: 10px;
+}
+.syn-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.syn-body strong { color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-eyebrow">&#9632; SaaS Partner Growth Library — Deep Research</div>
+  <h1 class="masthead-title">4 Books.<br><em>Every Lesson.</em><br>Zero Fluff.</h1>
+  <p class="masthead-sub">A complete research distillation of the four books that define how to structure, grow, and sell through SaaS partnerships — from deal architecture to viral influence.</p>
+  <div class="book-pills">
+    <button class="pill p1" onclick="show('b1',0)">01 · The Partnership Charter</button>
+    <button class="pill p2" onclick="show('b2',1)">02 · Ecosystem-Led Growth</button>
+    <button class="pill p3" onclick="show('b3',2)">03 · Crossing the Chasm</button>
+    <button class="pill p4" onclick="show('b4',3)">04 · Influence</button>
+  </div>
+</header>
+
+<nav class="nav">
+  <button class="nt all active" data-i="0" onclick="show('all',0)">Overview</button>
+  <button class="nt a1" data-i="1" onclick="show('b1',1)">Partnership Charter</button>
+  <button class="nt a2" data-i="2" onclick="show('b2',2)">Ecosystem-Led Growth</button>
+  <button class="nt a3" data-i="3" onclick="show('b3',3)">Crossing the Chasm</button>
+  <button class="nt a4" data-i="4" onclick="show('b4',4)">Influence</button>
+</nav>
+
+<main class="body">
+
+<!-- ██████ OVERVIEW ██████ -->
+<section id="s-all" class="sec active">
+
+  <div style="margin-bottom:32px">
+    <p style="font-family:var(--fd);font-size:22px;font-weight:600;margin-bottom:10px;line-height:1.4">The four books every SaaS founder building partner programs must read.</p>
+    <p style="font-size:14px;color:var(--muted);max-width:700px;line-height:1.7">Together they cover the complete arc: structuring the partnership deal, building a scalable partner ecosystem, positioning for mainstream adoption, and understanding the psychology that makes partners and influencers actually convert audiences. Click any book to go deep.</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card c1" onclick="show('b1',1)">
+      <div class="oc-num">Book 01</div>
+      <div class="oc-title">The Partnership Charter</div>
+      <div class="oc-author">David Gage, PhD</div>
+      <div class="oc-hook">The foundational document that prevents every partnership — with influencers, agencies, or resellers — from collapsing into conflict. Written before you sign anything.</div>
+      <div class="oc-stat">
+        <div><strong>5</strong><span>Core Pillars</span></div>
+        <div><strong>12</strong><span>Key Lessons</span></div>
+        <div><strong>#1</strong><span>Legal Protection</span></div>
+      </div>
+    </div>
+    <div class="overview-card c2" onclick="show('b2',2)">
+      <div class="oc-num">Book 02</div>
+      <div class="oc-title">Ecosystem-Led Growth</div>
+      <div class="oc-author">Bob Moore, Crossbeam CEO</div>
+      <div class="oc-hook">How to turn your partner network into your most scalable revenue engine — using data, account mapping, and ELG playbooks across marketing, sales and customer success.</div>
+      <div class="oc-stat">
+        <div><strong>4</strong><span>ELG Plays</span></div>
+        <div><strong>EQL</strong><span>New Lead Type</span></div>
+        <div><strong>46%</strong><span>Faster Close</span></div>
+      </div>
+    </div>
+    <div class="overview-card c3" onclick="show('b3',3)">
+      <div class="oc-num">Book 03</div>
+      <div class="oc-title">Crossing the Chasm</div>
+      <div class="oc-author">Geoffrey A. Moore</div>
+      <div class="oc-hook">The definitive framework for understanding which partner types are right for each growth stage — and why your early-adopter strategy will kill you with pragmatist buyers.</div>
+      <div class="oc-stat">
+        <div><strong>5</strong><span>Buyer Types</span></div>
+        <div><strong>1M+</strong><span>Copies Sold</span></div>
+        <div><strong>"Bible"</strong><span>Stanford, 2006</span></div>
+      </div>
+    </div>
+    <div class="overview-card c4" onclick="show('b4',4)">
+      <div class="oc-num">Book 04</div>
+      <div class="oc-title">Influence</div>
+      <div class="oc-author">Dr. Robert B. Cialdini</div>
+      <div class="oc-hook">The 7 psychological levers that make influencers, referral programs, and partner co-selling actually work — and how to build them into every deal structure.</div>
+      <div class="oc-stat">
+        <div><strong>7</strong><span>Principles</span></div>
+        <div><strong>5M+</strong><span>Copies Sold</span></div>
+        <div><strong>35 yrs</strong><span>Research</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slabel">How These Four Books Connect</div>
+  <div class="synthesis-grid">
+    <div class="syn-card">
+      <div class="syn-title">Structure First</div>
+      <div class="syn-body"><strong>Partnership Charter</strong> ensures every deal has governance before you scale it. It's the legal and relational foundation Ecosystem-Led Growth and Chasm strategy are built on. No charter = no safe partnership.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-title">Then Build the Engine</div>
+      <div class="syn-body"><strong>Ecosystem-Led Growth</strong> shows you how to operationalise those partnerships into revenue — using account overlaps, EQLs, and co-selling plays that turn structured relationships into pipeline.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-title">Position for the Right Buyer</div>
+      <div class="syn-body"><strong>Crossing the Chasm</strong> tells you which partners to recruit at each stage. Visionary-facing influencers early. Pragmatist-facing agencies and resellers to cross the chasm. Wrong partner, wrong stage = failure.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-title">Deploy the Psychology</div>
+      <div class="syn-body"><strong>Influence</strong> explains why certain partner structures and influencer tactics convert and others don't. Reciprocity, social proof, authority, and scarcity are not accidental — they're engineered triggers.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-title">The Master Sequence</div>
+      <div class="syn-body"><strong>Charter → ELG Engine → Chasm Positioning → Influence Psychology.</strong> Build the deal right, scale it systematically, position to the correct buyer type, and wire in the psychological triggers that make it convert. In that order.</div>
+    </div>
+    <div class="syn-card">
+      <div class="syn-title">Applied to Influencers</div>
+      <div class="syn-body">Charter = deal structure. ELG = how their audience overlap feeds your pipeline. Chasm = they're early-adopter magnets — useful pre-chasm, dangerous post-chasm if they're your only channel. Influence = what actually drives their audience to buy.</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ██████ BOOK 1 ██████ -->
+<section id="s-b1" class="sec">
+
+<div class="book-hdr b1">
+  <div class="bhdr-num">01</div>
+  <div class="bhdr-right">
+    <div class="bhdr-label">Book One · Deal Structure</div>
+    <div class="bhdr-title">The Partnership Charter</div>
+    <div class="bhdr-author">David Gage, PhD — Psychologist &amp; Business Mediator</div>
+    <div class="bhdr-tagline">A non-binding but comprehensive document that forces every partner — influencer, agency, reseller, co-founder — to discuss and agree on goals, governance, money, decision-making, conflict, and exit before a single contract is signed. Written in plain language. More important than the legal agreement it precedes.</div>
+  </div>
+</div>
+
+<div class="callout gold">
+  <div class="callout-label">Core Premise</div>
+  <strong>Most partnerships fail not from bad business, but from unspoken assumptions.</strong> Gage — who spent decades mediating partnership breakdowns — found that the disputes that destroy businesses were almost always visible before they started. The charter makes the invisible visible, while partners still like each other.
+</div>
+
+<div class="slabel">Pillar One — Business Foundation</div>
+<div class="lesson-grid b1">
+  <div class="lesson">
+    <div class="l-num">Lesson 01</div>
+    <div class="l-title">Define Mission, Vision, and Values Before Anything Else</div>
+    <div class="l-body">Partners must agree on the company's core purpose, competitive edge, and non-negotiable values <em>before</em> discussing money or roles. <strong>Gage cites Hewlett-Packard as the gold standard:</strong> HP's values were so deeply embedded that they became the spine of every decision. When the founders of Mail2000 spent 36 months aligning on their vision before raising a dollar, they sold to UPS for a rumoured $100M. The lesson: <strong>vague mission = eventual war over direction.</strong></div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 02</div>
+    <div class="l-title">Strategic Planning Must Expose Hidden Expectation Gaps</div>
+    <div class="l-body">A good strategic plan isn't just a roadmap — it's a <strong>gap-exposure tool.</strong> Partners should build it together specifically to surface where their expectations about growth rate, risk tolerance, exit horizon, and market focus diverge. If you can't agree on 3-year goals, you cannot be aligned partners. Include: target markets, resource allocation, growth milestones, and hiring philosophy. The plan becomes the diagnostic that reveals incompatibilities early.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 03</div>
+    <div class="l-title">Ownership Must Reflect Actual Contribution — Not Just Capital</div>
+    <div class="l-body">Gage makes a critical distinction: <strong>control can be worth more than cash.</strong> A partner who provides the capital but leaves operations to the other may hold more equity but deserve no salary. A partner who runs the day-to-day may hold less equity but draw the salary. The charter forces a transparent conversation about what each partner actually contributes — money, time, IP, relationships, skills — and structures ownership accordingly. This prevents the most common source of partner resentment: feeling underpaid for invisible contributions.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 04</div>
+    <div class="l-title">Financial Expectations Must Be Explicit and Personal</div>
+    <div class="l-body"><strong>Can you go without salary for 18 months? Does your partner expect a draw from day one?</strong> These questions sound uncomfortable but are non-negotiable. Gage shows that financial misalignment — different salary expectations, different views on reinvestment vs. profit-taking, different tax strategies — is one of the top three reasons partnerships collapse. The charter creates a formal space to be blunt: what does each partner need financially, and what can the business actually provide?</div>
+  </div>
+</div>
+
+<div class="slabel">Pillar Two — Governance and Decision-Making</div>
+<div class="lesson-grid b1">
+  <div class="lesson">
+    <div class="l-num">Lesson 05</div>
+    <div class="l-title">Build a Governance Framework — Even for Small Companies</div>
+    <div class="l-body">Gage argues that <strong>even two-person SaaS companies benefit from board-level governance structures.</strong> A board — even one with non-owner outside directors — forces partners to rise above daily operations and assess the business strategically. Responsibilities include: long-term direction, executive succession, major financial decisions. The distinction between board-level and management-level decision-making prevents partners from confusing "we're equal partners" with "I need to approve every decision."</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 06</div>
+    <div class="l-title">Pre-Define Who Decides What — and at What Threshold</div>
+    <div class="l-body">The charter must specify <strong>decision-making authority by category and dollar amount.</strong> Who can sign a contract unilaterally? Who needs the other's approval for a hire? Who can pivot the product strategy? Undefined authority creates either paralysis (both must approve everything) or resentment (one partner makes decisions the other feels blind-sided by). Map each decision type, set approval thresholds, and agree in advance on tie-breaking mechanisms for deadlocks.</div>
+  </div>
+</div>
+
+<div class="slabel">Pillar Three — Interpersonal Dynamics</div>
+<div class="lesson-grid b1">
+  <div class="lesson">
+    <div class="l-num">Lesson 07</div>
+    <div class="l-title">Assess Leadership Styles Before They Collide in a Crisis</div>
+    <div class="l-body">Arthur Sculley — who worked alongside his siblings at PepsiCo, Apple, and H.J. Heinz — told Gage that successful partnerships depend entirely on the <strong>willingness to accept the unique characteristics of others.</strong> The charter includes leadership style assessment: Are you a delegator or a controller? Do you decide fast or deliberate long? Are you comfortable with confrontation or do you avoid it? Where partners differ on these dimensions, they must agree in advance on how those differences will be managed rather than suppressed.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 08</div>
+    <div class="l-title">Write a Personal Partnership Manual</div>
+    <div class="l-body">Each partner should write a section that tells the other how to work with them effectively: <strong>communication preferences, triggers to avoid, commitments they value, feedback styles they respond to.</strong> This is not soft — it is operationally critical. The Ben &amp; Jerry's near-collapse (pre-dawn frostbite and operational chaos) is cited as a case where personal incompatibilities almost ended the brand. Most partner breakdowns begin as communication breakdowns, not business disagreements.</div>
+  </div>
+</div>
+
+<div class="slabel">Pillar Four — Monitoring and Health</div>
+<div class="lesson-grid b1">
+  <div class="lesson">
+    <div class="l-num">Lesson 09</div>
+    <div class="l-title">Treat Partnership Health Like Employee Performance Management</div>
+    <div class="l-body"><strong>One of the top practical lessons from the book:</strong> use the same tools you'd use to manage employees to manage the partnership itself. Regular performance feedback, clear deliverables for each partner role, explicit KPIs, and scheduled "partnership health" reviews. Most partners review their business metrics but never review their partnership dynamics. Gage argues these should happen on a formal calendar — quarterly at minimum — before a crisis forces the conversation.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 10</div>
+    <div class="l-title">Have the Conflict Resolution Process Ready Before You Need It</div>
+    <div class="l-body">The charter must include a <strong>pre-agreed escalation ladder for disputes:</strong> 1) Direct partner discussion. 2) Neutral facilitator. 3) Mediation. 4) Binding arbitration. The reason this must be written during good times is that partners cannot agree on a fair process during a conflict — everyone believes their preferred process favours them. The Rosie O'Donnell / Gruner &amp; Jahr magazine disaster is cited: no agreed conflict mechanism meant a brutal public lawsuit that destroyed both parties.</div>
+  </div>
+</div>
+
+<div class="slabel">Pillar Five — Future Planning and Exit</div>
+<div class="lesson-grid b1">
+  <div class="lesson full">
+    <div class="l-num">Lesson 11 + 12</div>
+    <div class="l-title">Plan the Future and the Exit Simultaneously</div>
+    <div class="l-body">Gage insists the charter address two uncomfortable questions upfront: <strong>What does the future look like if everything goes right?</strong> (growth plans, potential acquisition interest, IPO intent, lifestyle business vs. scale ambition) and <strong>What happens if a partner wants or needs to leave?</strong> Buyout formulas, vesting structures, death/disability provisions, non-compete terms, and business continuation plans. Without this, the departure of one partner — even amicably — can destroy a company. The charter transforms a potential death event into a managed transition.
+    <br><br>
+    <strong>Applied to influencer/agency deals:</strong> The charter framework maps directly onto SaaS–influencer or SaaS–agency agreements. Define: What does "success" mean for this partnership? Who owns the audience relationship if the partnership ends? What happens to co-created content? Who can terminate, and on what grounds? What performance thresholds trigger renegotiation? Write this before the deal launches — not when it's falling apart.</div>
+  </div>
+</div>
+
+<div class="framework">
+  <h3>The LockedIn Force Application</h3>
+  <div class="framework-steps">
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Before signing any influencer or agency deal:</strong> write a charter covering mission alignment (do they actually believe in discipline as a category?), financial expectations (flat fee vs. performance commission vs. equity?), decision rights (can they modify the brand message?), and exit terms (what happens to content and audience data when the deal ends?).</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Add governance:</strong> who reviews performance, how often, and what metrics trigger renegotiation. Monthly Force Score growth targets from partner-driven installs? Minimum engagement thresholds?</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Address the interpersonal:</strong> How does the influencer handle brand criticism? What are their communication preferences? What content decisions do they own vs. need approval for?</div></div>
+  </div>
+</div>
+
+</section>
+
+<!-- ██████ BOOK 2 ██████ -->
+<section id="s-b2" class="sec">
+
+<div class="book-hdr b2">
+  <div class="bhdr-num">02</div>
+  <div class="bhdr-right">
+    <div class="bhdr-label">Book Two · Growth Engine</div>
+    <div class="bhdr-title">Ecosystem-Led Growth</div>
+    <div class="bhdr-author">Bob Moore — CEO of Crossbeam, 3x founder (RJMetrics, Stitch — both acquired)</div>
+    <div class="bhdr-tagline">The blueprint for transforming a partner ecosystem from a passive referral list into an active, data-driven revenue engine. Moore argues that traditional growth motions — outbound sales, inbound content, paid ads, PLG — are all declining in efficiency. The companies winning in SaaS today use partner data to find, close, and expand customers faster than any solo channel can.</div>
+  </div>
+</div>
+
+<div class="callout green">
+  <div class="callout-label">The Founding Story and Core Warning</div>
+  Moore built RJMetrics into a high-growth analytics company — then watched it get wiped out by AWS Redshift, Looker, and the rise of best-of-breed tech stacks. <strong>The lesson he draws: companies that try to be all-in-one solutions get outcompeted by ecosystems of specialised partners.</strong> He sold RJMetrics for parts. Looker — which built a deep partner ecosystem — sold to Google for $2.6 billion. That contrast is the engine of the entire book.
+</div>
+
+<div class="slabel">Part One — Why Traditional Growth Is Failing</div>
+<div class="lesson-grid b2">
+  <div class="lesson">
+    <div class="l-num">Lesson 01</div>
+    <div class="l-title">Outbound, Inbound, Paid, and PLG Are All at Peak Saturation</div>
+    <div class="l-body">Moore documents that all four major SaaS growth motions have hit diminishing returns simultaneously: <strong>outbound is drowned by inbox noise; inbound content is commoditised by AI; paid CAC has risen beyond sustainable LTV ratios; PLG requires a product-qualified motion that most B2B tools can't self-serve.</strong> In a zero-interest-rate era these motions looked efficient. Post-ZIRP, they're not. The next growth layer has to come from relationships that pre-exist the sales conversation — i.e., partner ecosystems.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 02</div>
+    <div class="l-title">Partnerships Have Been Kept Alive by Fear, Not Value</div>
+    <div class="l-body">Moore delivers a blunt diagnosis: <strong>"Historically, partnerships are kept around not because of what they deliver by existing but because of the fear of what would happen if they did not exist at all."</strong> Most SaaS companies have a partner program that consists of a partner portal nobody uses, a PDF of commission rates, and a Slack channel with 12 members. This isn't a strategy. ELG is about turning that cost centre into a revenue engine by making partner data operational — not just relational.</div>
+  </div>
+</div>
+
+<div class="slabel">Part Two — The ELG Vocabulary (Critical Definitions)</div>
+<div class="lesson-grid b2">
+  <div class="lesson">
+    <div class="l-num">Lesson 03</div>
+    <div class="l-title">An Ecosystem Is a Network of Entities Working Toward Shared Customer Value</div>
+    <div class="l-body">Moore's definition is precise: <strong>an ecosystem is a network of interlinked companies, communities, and individuals that collectively provide advantages to shared customers.</strong> Not just "companies you integrate with." The key word is <em>shared customers</em> — the entire ELG playbook is built on the insight that you and your partners already have overlapping customer bases. That overlap is the data goldmine. An integration partner who serves your same ICP is not a nice-to-have — they are a sales intelligence asset.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 04</div>
+    <div class="l-title">Account Overlaps Are the Core Unit of ELG Value</div>
+    <div class="l-body"><strong>Account mapping — comparing your customer list with a partner's customer list — is the foundational play in ELG.</strong> Overlaps reveal three high-value signals: 1) Prospects who are already customers of your partner (warm intro possible). 2) Partners' customers who aren't yet yours (inbound opportunity with social proof pre-loaded). 3) Shared customers who use both products (expansion and retention leverage). Moore's platform Crossbeam automates this. Manually, it starts with a shared spreadsheet. Either way, it starts here.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 05</div>
+    <div class="l-title">The Ecosystem Qualified Lead (EQL) Is the New MQL</div>
+    <div class="l-body">Moore introduces the EQL as the most important new lead type in modern SaaS: <strong>a prospect that has been qualified not just by their own firmographics or intent signals, but by their position in your partner ecosystem.</strong> EQLs know which of your partners they already use, whether they're in an active deal cycle with a partner, and whether they're a significant customer for someone in your network. EQLs close faster, at higher ACVs, and with better retention — because they arrive with trust pre-built via the partner relationship.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 06</div>
+    <div class="l-title">Second-Party Data Is the Unfair Advantage</div>
+    <div class="l-body">First-party data = what you know about your own customers. Third-party data = bought data (declining quality). <strong>Second-party data = your partner's first-party data, shared with you.</strong> This is the ELG data layer. When a partner shares which of their customers are using their product heavily, which are up for renewal, and which are evaluating complementary tools — that's sales intelligence you cannot buy, cannot infer, and cannot replicate through any solo motion. Platforms like Crossbeam provide the privacy-safe infrastructure for this exchange.</div>
+  </div>
+</div>
+
+<div class="slabel">Part Three — The 4 ELG Playbooks</div>
+<div class="lesson-grid b2">
+  <div class="lesson full">
+    <div class="l-num">Lesson 07</div>
+    <div class="l-title">Playbook 1: Ecosystem Development — Populate Your Partner Ecosystem with Winners</div>
+    <div class="l-body"><strong>Not all partners are equal — you need a partner prioritisation matrix.</strong> Moore's framework evaluates partners on two axes: audience overlap (how many of their customers match your ICP?) and partnership investment (how committed are they to jointly driving revenue?). The quadrant produces four categories: Supernodes (high overlap, high investment — invest heavily), Tier 2 (high overlap, low investment — nurture to upgrade), Co-sellers (low overlap, high investment — useful tactically), and Long Tail (low on both — automate and don't manually manage).
+    <br><br>
+    <strong>Curate data access carefully:</strong> don't give every partner full visibility into your customer data. Map data-sharing agreements to partnership tier. High-value partners get rich overlap data; early-stage partners get aggregate signals only.
+    </div>
+  </div>
+  <div class="lesson full">
+    <div class="l-num">Lesson 08</div>
+    <div class="l-title">Playbook 2: Ecosystem-Led Marketing — Fill Your Funnel with EQLs</div>
+    <div class="l-body">Three specific tactics Moore covers in depth:
+    <br><br>
+    <strong>1. Upgrade SDRs to PDRs (Partner Development Representatives).</strong> Instead of cold outreach, PDRs use partner overlap data to identify warm prospects, then reach out through the partner relationship as the warm intro vector. Moore gives examples of companies that replaced their entire cold-outbound function with PDRs and saw conversion rates multiply.
+    <br><br>
+    <strong>2. Account-Based Marketing with second-party data.</strong> Companies like Everflow and RollWorks use partner overlap data to hyper-personalise ABM campaigns — knowing not just the company's size but which tools they already use.
+    <br><br>
+    <strong>3. Turn investors into pipeline generation engines.</strong> Moore argues that your VC investors often have portfolio company overlaps with your ICP. Structuring regular intros from investors to portfolio companies is an under-utilised EQL source.
+    <br><br>
+    <strong>4. Events strategy reimagined:</strong> Instead of hosting or attending broad conferences, use overlap data to identify which events your highest-overlap partners attend — then co-sponsor or co-host exclusively at those events.</div>
+  </div>
+  <div class="lesson full">
+    <div class="l-num">Lesson 09</div>
+    <div class="l-title">Playbook 3: Ecosystem-Led Sales — Close Bigger, Better Customers Faster</div>
+    <div class="l-body">The Fivetran case study is the gold standard here. <strong>Fivetran's AE Playbook dashboard shows each Account Executive which partner AEs share the most account overlaps with them</strong> — enabling rep-to-rep relationship building that turns abstract partnership agreements into active co-selling. Results: deals involving partner overlap close 46% faster.
+    <br><br>
+    <strong>The ELG Sales Tetrahedron (from Braze's David Goldstein):</strong> Four elements required for sales team buy-in: 1) Tools, 2) Data, 3) Stakeholder engagement, and 4) Cumulative impact tracking. All four must be present or the sales team won't use the ELG layer.
+    <br><br>
+    <strong>Co-selling mechanics:</strong> A partner champion at their company vouches for you in deals where they're already a trusted vendor. Moore shows that warm co-sell introductions have dramatically higher win rates than any cold-entry sales motion. The key operational requirement: your sales team must have real-time visibility into which of their open opportunities have partner overlaps.
+    <br><br>
+    <strong>Hyperscaler Cloud Marketplaces</strong> (AWS, Azure, GCP): Moore argues these are underutilised by most SaaS companies. Large enterprises have committed spend buckets on cloud marketplaces. Being listed means your product can be purchased against pre-committed budget — removing procurement friction entirely.</div>
+  </div>
+  <div class="lesson full">
+    <div class="l-num">Lesson 10</div>
+    <div class="l-title">Playbook 4: Ecosystem-Led Customer Success — Eliminate Churn and Grow Accounts</div>
+    <div class="l-body">Moore shows that ELG's highest-leverage application is actually retention, not acquisition. <strong>Bombora increased its customer revenue retention from a concerning number to over 130% NRR after implementing ELG-driven customer success.</strong>
+    <br><br>
+    Key mechanics: Customer Success Managers use "Upcoming Renewals with Overlaps" reports to see which renewing customers are deeply embedded in the partner ecosystem — making churn far more expensive for the customer. Customers who use multiple integrated tools in a stack have dramatically lower churn rates. This makes ELG a direct retention lever.
+    <br><br>
+    <strong>Tech partner-driven expansion:</strong> When a customer adds a new tool to their stack that integrates with yours, that's an expansion signal. Partner data surfaces these signals before the customer even contacts your team.</div>
+  </div>
+</div>
+
+<div class="slabel">Metrics That Matter</div>
+<table class="apply-table">
+  <thead><tr><th>Metric</th><th>What It Measures</th><th>Why It Matters</th></tr></thead>
+  <tbody>
+    <tr><td>Partner-Sourced Revenue %</td><td>% of total ARR attributable to a specific partner</td><td>Makes the business case for partner investment to CRO/board</td></tr>
+    <tr><td>EQL Close Rate</td><td>Win rate on ecosystem-qualified leads vs. non-EQL</td><td>Proves ELG pipeline quality over volume</td></tr>
+    <tr><td>Partner-Influenced Deal Size</td><td>ACV uplift when a partner is involved in a deal</td><td>Shows that ELG improves economics, not just volume</td></tr>
+    <tr><td>Overlap Coverage %</td><td>% of your ICP covered by at least one partner overlap</td><td>Measures ecosystem completeness</td></tr>
+    <tr><td>Co-Sell Velocity</td><td>Days-to-close for partner-co-sold deals vs. solo</td><td>Fivetran benchmark: 46% faster with ELG</td></tr>
+    <tr><td>NRR with Partner Stack</td><td>Net Revenue Retention for customers using 2+ integrated partners</td><td>Measures retention lock-in from ecosystem depth</td></tr>
+  </tbody>
+</table>
+
+<div class="framework" style="background:var(--b2)">
+  <h3>The LockedIn Force Application</h3>
+  <div class="framework-steps">
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Map overlaps immediately.</strong> Which productivity, wellness, or creator tools share the same ICP as LockedIn Force? Notion users, Pomodoro timer users, Atomic Habits readers — build overlap lists. Anyone who already sells to the "I want to be more disciplined" ICP is a potential partner.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Convert influencers from SDRs to PDRs.</strong> Instead of "post and link," structure influencer agreements around warm audience activation — their audience already knows and trusts them. That's second-party data in human form.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Build the Partner Prioritisation Matrix.</strong> Tier 1 Supernodes: creators with 80%+ ICP overlap and high willingness to co-create. Tier 2: communities (productivity Discord servers, self-improvement subreddits) where your ICP already lives.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Use retention ELG.</strong> Partner with habit-tracking or journaling apps to surface when shared users are active — those are expansion signals. A user tracking habits daily who hasn't tried LockedIn Force's full feature set is an upsell EQL.</div></div>
+  </div>
+</div>
+
+</section>
+
+<!-- ██████ BOOK 3 ██████ -->
+<section id="s-b3" class="sec">
+
+<div class="book-hdr b3">
+  <div class="bhdr-num">03</div>
+  <div class="bhdr-right">
+    <div class="bhdr-label">Book Three · Market Positioning</div>
+    <div class="bhdr-title">Crossing the Chasm</div>
+    <div class="bhdr-author">Geoffrey A. Moore — Management consultant, Venture Partner</div>
+    <div class="bhdr-tagline">First published 1991, still described as "the bible for entrepreneurial marketing" by Stanford in 2006, with 1M+ copies sold. The definitive framework for understanding why innovative products stall — and the exact strategies to transition from a small base of enthusiastic early adopters to the dominant mainstream market. More relevant to modern SaaS than any book published this decade.</div>
+  </div>
+</div>
+
+<div class="callout blue">
+  <div class="callout-label">The Core Claim</div>
+  <strong>The technology adoption lifecycle is not a smooth bell curve — there is a dangerous, frequently fatal gap between Early Adopters (visionaries) and the Early Majority (pragmatists).</strong> Most companies that fail don't run out of money or ideas. They mistake early-adopter enthusiasm for mainstream demand, exhaust their resources chasing the wrong buyer profile, and fall into the chasm. The book is entirely about how not to do that.
+</div>
+
+<div class="slabel">Part One — The Five Buyer Psychographics</div>
+<div class="lesson-grid b3">
+  <div class="lesson">
+    <div class="l-num">Profile 01</div>
+    <div class="l-title">Innovators — Technology Enthusiasts</div>
+    <div class="l-body"><strong>Who they are:</strong> The first 2.5% of the market. They seek out new technology for its own sake and will tolerate bugs, incomplete features, and rough UX for the privilege of being first. <strong>What they want:</strong> Raw access to the technology, a direct line to the engineers, and low/free pricing. <strong>Value to you:</strong> Useful for product validation, debugging, and initial social proof. <strong>Danger:</strong> Their feedback optimises for power features that pragmatists will never use. Don't mistake their enthusiasm for market signal.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Profile 02</div>
+    <div class="l-title">Early Adopters — Visionaries</div>
+    <div class="l-body"><strong>Who they are:</strong> The 13.5% after innovators. They see technology as a means to a competitive leap — they want to use your product before competitors do. Kennedy and the space program. Henry Ford and mass production. <strong>What they want:</strong> A compelling vision of transformation, customisation, and a direct relationship with the vendor. They don't need references. They don't need the product to be complete. <strong>Danger:</strong> They are terrible references for pragmatists. A visionary raving about your product actually makes pragmatists more suspicious, not less.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Profile 03</div>
+    <div class="l-title">Early Majority — Pragmatists (The Chasm Gatekeepers)</div>
+    <div class="l-body"><strong>Who they are:</strong> The 34% that make you a real business. They are deeply practical, risk-averse, and highly social in their buying decisions. <strong>What they want:</strong> Proven solutions. Industry references (not visionary references — they want to hear from people exactly like them). Compatible with their existing stack. A full ecosystem of supporting vendors. <strong>The critical insight:</strong> Pragmatists don't buy until they can compare — they need to see competitive alternatives. You may have to actively <em>create</em> your competition to cross the chasm. <strong>Positioning that works:</strong> Not "state-of-the-art" but "industry standard."</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Profile 04</div>
+    <div class="l-title">Late Majority — Conservatives</div>
+    <div class="l-body"><strong>Who they are:</strong> Another 34%. They adopt when something becomes the established standard — and even then, only from large, well-established companies with proven support. <strong>What they want:</strong> Single-focus products that do one thing well. Low price. No disruption. High convenience. They want evolution, not revolution. <strong>What they don't want:</strong> To debug anything, to need IT involvement, or to explain the purchase to leadership. <strong>Moore's note:</strong> They waited long enough that prices have dropped to just above cost. They'll never be high-margin accounts. Design for them last.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Profile 05</div>
+    <div class="l-title">Laggards — Skeptics</div>
+    <div class="l-body"><strong>Who they are:</strong> The last 16%. They do not participate in the high-tech marketplace — except to block purchases. <strong>Moore's verdict:</strong> "The primary function of high-tech marketing in relation to skeptics is to neutralise their influence." They're not your customer. They may be inside your customer's organisation trying to kill your deal. Know them not as buyers but as obstacles, and address their objections through social proof and risk reduction rather than feature persuasion.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">The Fundamental Gap</div>
+    <div class="l-title">Why Visionaries Cannot Reference Pragmatists</div>
+    <div class="l-body">Moore identifies four specific traits of visionaries that <em>actively alienate</em> pragmatists: <strong>1)</strong> Visionaries don't respect the value of colleagues' experience (pragmatists do). <strong>2)</strong> Visionaries are seeking competitive advantage through exclusivity — they don't want you to sell to anyone else yet. <strong>3)</strong> They expect customisation and bespoke features. <strong>4)</strong> They have project-driven budgets, not operational ones. A pragmatist reads a visionary reference and thinks: "That person wanted something risky and radical. That's not me." The reference backfires.</div>
+  </div>
+</div>
+
+<div class="slabel">Part Two — Crossing the Chasm Strategy</div>
+<div class="lesson-grid b3">
+  <div class="lesson full">
+    <div class="l-num">Lesson 06</div>
+    <div class="l-title">The Beachhead Strategy — Big Fish, Small Pond</div>
+    <div class="l-body">Moore's central strategic prescription is the <strong>beachhead market:</strong> identify the smallest possible vertical segment of pragmatists where you can achieve complete dominance — then use that dominance as the launchpad into adjacent segments.
+    <br><br>
+    The analogy is D-Day: the Allied invasion didn't try to land everywhere at once. It focused overwhelming force on one beach (Normandy), established a secured position, then expanded outward. <strong>Tesla did this with luxury EVs before moving to mass market. You do it by picking one job title, in one industry vertical, with one use case, and dominating it before expanding.</strong>
+    <br><br>
+    Why this works for crossing the chasm: within a tight vertical, pragmatists talk to each other. A single win with a respected company in that vertical creates the reference base that makes all subsequent sales faster. Without this, you have disconnected wins with no cross-referencing community, no word-of-mouth, and no evidence of "industry standard" status.
+    <br><br>
+    The criteria for a good beachhead: 1) A compelling reason to buy (a pain point that's urgent, not nice-to-have). 2) A referenceable customer base (decision-makers who talk to each other). 3) A complete-able market (small enough to win, large enough to launch from). 4) Compatibility with your product's genuine strengths.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 07</div>
+    <div class="l-title">The Whole Product — Pragmatists Buy Solutions, Not Features</div>
+    <div class="l-body">Pragmatists don't buy a product — they buy a complete solution to a problem. Moore's "Whole Product" concept: the generic product is just the core. The whole product includes: complementary products, integrations, professional services, support, training, and community. <strong>Early adopters can integrate the product themselves. Pragmatists will not.</strong> Before crossing the chasm, you must assemble the whole product — either by building it, partnering for it, or acquiring it. The partner ecosystem is therefore not optional for crossing the chasm — it is a precondition.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 08</div>
+    <div class="l-title">Positioning That Works for Each Psychographic</div>
+    <div class="l-body"><strong>Enthusiasts:</strong> Name it and frame it. Tell them what it is technically. <strong>Visionaries:</strong> Tell them who it's for and what the transformational impact could be — they'll extrapolate the vision. <strong>Pragmatists:</strong> Show competitive landscape and differentiation. Who else is buying? What do I compare it against? <strong>Conservatives:</strong> Show financial stability and future roadmap. Is this company safe to bet on? <strong>The fatal mistake</strong> most startups make: using visionary positioning language ("disrupts the entire industry," "reimagines how you work") when pitching pragmatist buyers. They hear it and think: risky.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 09</div>
+    <div class="l-title">Distribution Channel Must Match the Pragmatist's Comfort Zone</div>
+    <div class="l-body">Moore's often-overlooked insight: <strong>"The number-one corporate objective when crossing the chasm is to secure a distribution channel into the mainstream market, one with which the pragmatist customer will be comfortable."</strong> Pricing is not primarily for the customer — it's to motivate the channel. A channel partner needs margin to invest in selling your product. Pricing that makes sense for the customer but leaves no channel margin will produce a dead partner program. Map your distribution strategy to where pragmatist buyers actually trust and buy.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Lesson 10</div>
+    <div class="l-title">Social Proof Evidence Hierarchy for Pragmatist Buyers</div>
+    <div class="l-body">Moore documents exactly what pragmatists use as evidence in their buying process (in order of persuasive power): <strong>1) Market share data</strong> — the most powerful signal. <strong>2) Quality and number of your partner ecosystem</strong> — if you lack market share data, show your partners' commitment. <strong>3) Industry analyst recognition</strong> (Gartner, Forrester). <strong>4) Customer references from their specific industry vertical</strong> — not generic testimonials, but peer-to-peer references. <strong>The operating principle:</strong> "You identify leaders by their followers." Your partner ecosystem is literal social proof that you're the emerging standard.</div>
+  </div>
+  <div class="lesson full">
+    <div class="l-num">Lesson 11</div>
+    <div class="l-title">The Four Domains of Value Shift Across the Lifecycle</div>
+    <div class="l-body">Moore identifies four domains that customers value: <strong>Technology, Product, Market, and Company.</strong> The emphasis shifts as buyers change:
+    <br><br>
+    <strong>Early market (Innovators + Visionaries):</strong> Technology and Product dominate. They want to know what the tech can do and what the product's features are. <strong>Mainstream market (Pragmatists + Conservatives):</strong> Market and Company dominate. They want to know: Is this the market leader? Is this company stable enough to be a long-term partner?
+    <br><br>
+    <strong>The practical implication:</strong> Your marketing message, your sales pitch, your partner positioning, and your PR strategy must shift completely when you cross the chasm. What won your early customers will actively repel mainstream buyers. The content you wrote for visionaries (feature-deep, transformation-focused) must be replaced by market-leadership content (case studies, analyst placements, partner showcases). Most companies never make this shift — they keep talking to pragmatists the way they talked to visionaries, and wonder why deals stall.</div>
+  </div>
+</div>
+
+<div class="framework" style="background:var(--b3)">
+  <h3>The LockedIn Force Application</h3>
+  <div class="framework-steps">
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>You are currently in early-adopter territory.</strong> Your core audience — high-performance obsessives, productivity enthusiasts, self-improvement identity buyers — are visionaries. They love the concept. They'll tolerate rough edges. Use influencers who speak this language to build this base.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Identify your beachhead.</strong> Which one pragmatist segment has the most urgent need for enforced discipline? Founders? Medical students? Remote workers with no external accountability? Pick one. Dominate it with case studies, community, and references before expanding to adjacent segments.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Do not use visionary influencers to sell to pragmatists.</strong> A productivity hype-creator raving about LockedIn Force makes pragmatists trust it less. For crossing the chasm, you need industry-specific validation: "here's a verified case study from a medical student who improved their board score using this." Peer references, not visionary endorsements.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Build the whole product now.</strong> The pragmatist buyer won't set the app up themselves. Integration with calendar tools, Notion, Todoist — the whole product stack makes the solution complete enough for mainstream adoption.</div></div>
+  </div>
+</div>
+
+</section>
+
+<!-- ██████ BOOK 4 ██████ -->
+<section id="s-b4" class="sec">
+
+<div class="book-hdr b4">
+  <div class="bhdr-num">04</div>
+  <div class="bhdr-right">
+    <div class="bhdr-label">Book Four · Influence Psychology</div>
+    <div class="bhdr-title">Influence: The Psychology of Persuasion</div>
+    <div class="bhdr-author">Dr. Robert B. Cialdini — Professor of Psychology, Arizona State University. 35 years of research.</div>
+    <div class="bhdr-tagline">The most scientifically rigorous book on why humans say yes — and how those principles map directly to why influencer partnerships, referral programs, co-selling, and partner-driven acquisition actually convert. First published 1984. 5M+ copies sold. Still the definitive text. Cialdini added a 7th principle (Unity) in the expanded edition. Every principle is a conversion lever you can engineer into your partner program.</div>
+  </div>
+</div>
+
+<div class="callout red">
+  <div class="callout-label">The Core Premise</div>
+  <strong>In a complex world, humans use mental shortcuts to make decisions.</strong> These shortcuts — "click, whirr" automatic responses — evolved because they're usually correct. But they can be triggered deliberately. Cialdini spent three years working undercover inside sales, marketing, and compliance organisations to document how professionals use these triggers. The result: 7 universal principles that operate across culture, context, and product category. Knowing them is the difference between a partner program that converts and one that just looks active.
+</div>
+
+<div class="slabel">The 7 Principles — In Full</div>
+<div class="lesson-grid b4">
+  <div class="lesson">
+    <div class="l-num">Principle 01</div>
+    <div class="l-title">Reciprocity — The Obligation to Give Back</div>
+    <div class="l-body">Humans feel a powerful obligation to repay what others have given them. <strong>Critically: this obligation is triggered even by uninvited gifts, and it overrides personal liking.</strong> The Hare Krishna experiments showed that people gave donations to people they didn't like and didn't want the flower from — because they'd accepted the gift and felt obligated. Carter's legislative failures in Congress are attributed to his refusal to build reciprocal political capital — nobody owed him anything.
+    <br><br>
+    <strong>Applied:</strong> Go first and go positive without expectation. An influencer who receives genuine resources, access, and support from you before you ask them to promote you will feel the pull of obligation. A partner who receives a warm intro from you (before asking for one back) is far more likely to reciprocate. The Hare Krishna principle: give something the other party didn't explicitly ask for, and the pull to reciprocate is amplified.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Principle 02</div>
+    <div class="l-title">Commitment and Consistency — The Need to Honour Prior Choices</div>
+    <div class="l-body">Once someone makes a choice or takes a stand, they will face personal and interpersonal pressure to behave consistently with it. <strong>The foot-in-the-door technique:</strong> getting a small initial yes makes a large subsequent yes far more likely. The Drive Safely experiment showed that homeowners who had previously placed a small postcard in their window were 4x more likely to allow a large billboard — because they'd already "committed" to the cause.
+    <br><br>
+    <strong>The power amplifiers:</strong> voluntary (chosen freely, not coerced), active (written or publicly stated, not just thought), and public (witnessed by others). A commitment that has all three is nearly unbreakable.
+    <br><br>
+    <strong>Applied:</strong> Before asking an influencer for a major campaign, get small public commitments first. Ask them to post their Force Score. Ask them to take the 7-day challenge. Each small public commitment increases the likelihood of full campaign participation — and makes them feel internally consistent in continuing. The missed-appointment reduction (18%) from asking patients to write down their own appointment details is a direct analogy: get partners to write their own goals in the partnership agreement.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Principle 03</div>
+    <div class="l-title">Social Proof — We Follow What Similar Others Do</div>
+    <div class="l-body">Cialdini describes this as potentially the most powerful of all principles because it operates automatically and affects people even when they're aware of it. <strong>"We use what other people think is correct to determine what is correct ourselves."</strong> The hotel towel experiment: changing the card from "environmental reasons" to "75% of guests in this room have reused their towels" increased reuse by 26% — because it used peer social proof rather than abstract values.
+    <br><br>
+    <strong>Activation conditions:</strong> Social proof is most powerful under uncertainty, in ambiguous situations, and when the reference group is similar to the observer. A testimonial from "a business professional" is weak. A testimonial from "a founder of a 12-person SaaS company who works from home" is powerful — because it's specific and similar.
+    <br><br>
+    <strong>Applied:</strong> The Force Score public sharing mechanic in LockedIn Force is a direct social proof engine. "47,000 people shared their Force Score this week" is social proof. "People exactly like you are using this" is social proof. The influencer's audience watching them track and share their own score is social proof delivered by proxy.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Principle 04</div>
+    <div class="l-title">Authority — We Defer to Credible Experts</div>
+    <div class="l-body">Humans are conditioned to follow the lead of genuine experts. This deference is so automatic that <strong>even the symbols of authority — titles, attire, credentials, expert introductions — trigger compliance independently of actual expertise.</strong> An expert introduction before a keynote increased appointment bookings by 20% and signed contracts by 15%.
+    <br><br>
+    <strong>The Milgram experiments:</strong> Ordinary people administered apparently dangerous electric shocks when instructed by someone in a lab coat. The authority cue (lab coat) overrode personal moral judgment.
+    <br><br>
+    <strong>Applied:</strong> Who has credibility in your niche that you can associate with? A neuroscientist who validates the science of enforced focus? A high-performance coach with a verified track record? Authority is manufactured through association, credentials, and the quality of evidence — not just self-claim. In partner deals: position yourself as the category authority. Let partners borrow your authority in their content ("the #1 discipline enforcement app") — borrowed authority is still authority.</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Principle 05</div>
+    <div class="l-title">Liking — We Say Yes to People We Like</div>
+    <div class="l-body">Three factors drive liking at near-universal scale: <strong>1) Similarity</strong> — we like people who are like us in background, interests, values, or circumstances. <strong>2) Compliments</strong> — genuine flattery works even when people know it's a sales technique. <strong>3) Cooperation toward mutual goals</strong> — working together on a shared objective generates liking independent of prior relationship.
+    <br><br>
+    Joe Girard — the world's greatest car salesman — sent every customer a holiday card that simply said "I like you." Sales compound because of it.
+    <br><br>
+    <strong>Applied:</strong> This is why influencer marketing works at a fundamental level — the audience already likes the influencer. Their endorsement inherits the relationship. The implication for deal structure: don't just hire influencers as media channels. Build genuine relationships where they actually like and use the product. Authentic endorsement from a genuine fan converts at multiples of a paid promotional post. The similarity principle means micro-influencers with deeply similar audiences outperform macro-influencers with broad audiences for conversion (even if they underperform for reach).</div>
+  </div>
+  <div class="lesson">
+    <div class="l-num">Principle 06</div>
+    <div class="l-title">Scarcity — We Want What We Might Lose Access To</div>
+    <div class="l-body">Scarcity operates on two levels: <strong>1) We use rarity as a shortcut to determine value</strong> (the expensive = good heuristic). <strong>2) We hate losing freedoms we currently have</strong> — what psychologists call reactance. The jewellery store that doubled prices by mistake and sold out faster is the landmark example of the first. Parents banning books or drugs creating higher demand is the landmark example of the second.
+    <br><br>
+    <strong>Activation conditions:</strong> Newly experienced scarcity is more powerful than constant scarcity. The most powerful scarcity tactic Cialdini documents: tell customers of a limited supply and tell them that information is exclusive. A double scarcity (the thing is scarce AND the information about its scarcity is exclusive) produced the highest sales results in his research.
+    <br><br>
+    <strong>Competition amplification:</strong> Being in competition for a scarce resource has powerfully motivating properties. The leaderboard mechanic in LockedIn Force deploys exactly this — seeing your streak position fall (imminent loss) is a more powerful motivator than seeing it rise.
+    <br><br>
+    <strong>Applied:</strong> Partner access tiers. Early co-founder partner program with limited slots. Exclusive integration benefits. Time-limited onboarding support. These all leverage scarcity. The Streak mechanic leverages loss aversion scarcity — you're about to lose your streak if you don't act.</div>
+  </div>
+  <div class="lesson full">
+    <div class="l-num">Principle 07</div>
+    <div class="l-title">Unity — The Shared Identity Trigger (The 7th and Most Recent Principle)</div>
+    <div class="l-body">Added in Cialdini's expanded edition — and arguably the most relevant principle for community-driven products. <strong>Unity is not about similarity (Liking) — it's about shared identity.</strong> "We is the shared me." When people feel they belong to the same group — family, ethnicity, political tribe, national identity, cultural movement — their sense of self merges with the group. Influencing a member of that group influences their identity.
+    <br><br>
+    The Unity principle operates at the level of: Are we the same kind of person? Not "do we have similar interests" but "are we fundamentally of the same tribe?"
+    <br><br>
+    <strong>Applied:</strong> "LockedIn" as a cultural identity is a direct Unity deployment. The word doesn't describe a feature — it describes a kind of person. When someone says "I'm LockedIn," they are stating tribal membership. This is why the brand language ("Are you LockedIn or just pretending?") works — it activates the Unity principle's in-group/out-group mechanics. The partner program benefits from this: influencers and agency partners who genuinely identify as "LockedIn people" will promote the product with a conviction that no paid brief can produce. Recruit for identity alignment first, audience size second.
+    <br><br>
+    The contrast principle (documented outside the seven but throughout the book): if the second item in a presentation is different from the first, we see it as more different than it actually is. Pitch after a worse alternative to look better. Sell the expensive item first, then the add-ons look cheap by comparison.</div>
+  </div>
+</div>
+
+<div class="slabel">How the 7 Principles Map to Partner and Influencer Programs</div>
+<table class="apply-table">
+  <thead><tr><th>Principle</th><th>How to Engineer It into a Partner Program</th></tr></thead>
+  <tbody>
+    <tr><td>Reciprocity</td><td>Give influencers and partners resources, intros, and exclusive content before asking them to promote. Trigger the obligation first. Go positive and go first.</td></tr>
+    <tr><td>Commitment/Consistency</td><td>Get small public commitments first (a shared Force Score, a 7-day challenge post). Escalate to full campaign. Each step locks the prior step in.</td></tr>
+    <tr><td>Social Proof</td><td>Publish aggregate Force Score stats. "47,000 people used this today." Show specific, similar-identity users — not generic testimonials.</td></tr>
+    <tr><td>Authority</td><td>Get one credible expert to validate the science. Associate with high-credibility publications or platforms. Lend your authority to partners' content.</td></tr>
+    <tr><td>Liking</td><td>Use micro-influencers with high ICP similarity over macro-influencers with broad reach. Authentic product fans convert; hired voices don't.</td></tr>
+    <tr><td>Scarcity</td><td>Limit founding partner cohort. Use leaderboard mechanics (loss aversion). Give partners exclusive early feature access — exclusive AND time-limited.</td></tr>
+    <tr><td>Unity</td><td>Build "LockedIn" as identity, not brand. Recruit partners who genuinely identify with the movement. Unity-aligned advocates promote at multiples of transactional ones.</td></tr>
+  </tbody>
+</table>
+
+<div class="framework" style="background:var(--b4)">
+  <h3>The LockedIn Force Application — Compound Deployment</h3>
+  <div class="framework-steps">
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Unity + Authority:</strong> The "LockedIn" identity label does the Unity work. Find one credible authority (a performance psychologist, a decorated founder) to do the Authority work. Together: "these are the elite disciplined people — and here's the science behind why it works."</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Reciprocity + Commitment:</strong> Give influencers 90-day free access and full product walkthrough before any ask. Then ask for a 7-day challenge post. Then escalate to full partnership. Each step is voluntary, active, and public — maximally sticky.</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Social Proof + Scarcity:</strong> Publish daily Force Score stats publicly. Show that tens of thousands of people are using it — social proof. Simultaneously run a founding partner program with limited slots — scarcity. The combination: "everyone's doing this AND you might miss your window to be part of the core community."</div></div>
+    <div class="fstep"><div class="fstep-n">→</div><div class="fstep-text"><strong>Liking for partner selection:</strong> Do not select influencers purely by follower count. Select by audience ICP similarity and genuine product belief. A 15k-follower creator whose entire audience is self-improvement founders will outperform a 500k-follower lifestyle creator 10:1 on conversion.</div></div>
+  </div>
+</div>
+
+</section>
+
+</main>
+
+<script>
+const secs = ['all','b1','b2','b3','b4'];
+const navClasses = ['all','a1','a2','a3','a4'];
+function show(id, i) {
+  secs.forEach(s => {
+    const el = document.getElementById('s-'+s);
+    if(el) el.classList.toggle('active', s === id);
+  });
+  document.querySelectorAll('.nt').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === i);
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
